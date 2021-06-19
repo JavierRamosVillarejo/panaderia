@@ -1,18 +1,21 @@
 
-<div class="container pt-3">
 
-    <form class="card row text-center form-group" [formGroup]="formRegister" (submit)="submit()">
+
+<div class="container pt-3">
+    <h1 class="text-center">Registro</h1>
+
+    <form class="card border-primary mb-3 row text-center form-group" [formGroup]="formRegister" (submit)="submit()">
     
-        <label for="nombre" class="bg-info">Nombre</label><input type="text" class="form-control" formControlName="nombre" id="nombre">
-        <label for="apellidos" class="bg-info">Apellidos</label><input type="text" class="form-control" formControlName="apellidos" id="apellidos">
+        <label for="nombre" class="form-label mt-4">Nombre</label><input type="text" class="form-control" formControlName="nombre" id="nombre">
+        <label for="apellidos" class="form-label mt-4">Apellidos</label><input type="text" class="form-control" formControlName="apellidos" id="apellidos">
         <br> 
-        <label for="password" class="bg-info">Contraseña</label><input type="password" class="form-control" formControlName="password" id="password">
-        <label for="repassword" class="bg-info">Repite Contraseña</label><input type="password" class="form-control"  formControlName="repassword" id="repassword">
-        <label for="email" class="bg-info" >Email</label><input type="text" class="form-control"  formControlName="email" id="email"> 
+        <label for="password" class="form-label mt-4">Contraseña</label><input type="password" class="form-control" formControlName="password" id="password">
+        <label for="repassword" class="form-label mt-4">Repite Contraseña</label><input type="password" class="form-control"  formControlName="repassword" id="repassword">
+        <label for="email" class="form-label mt-4">Email</label><input type="text" class="form-control"  formControlName="email" id="email"> 
         <br>
-        <label for="dni" class="bg-info">dni</label><input type="text" class="form-control"  formControlName="dni" id="dni">
+        <label for="dni" class="form-label mt-4">DNI</label><input type="text" class="form-control"  formControlName="dni" id="dni">
         <br>
-        <button type="submit" class="form-control bg-danger"  [disabled]="formRegister.invalid" data-toggle="modal" data-target="#miModal">Registro</button>
+        <button type="submit" class="btn btn-primary btn-lg"  [disabled]="formRegister.invalid" data-toggle="modal" data-target="#miModal">Registro</button>
     
     </form>
     <!--Aqui empezamos a comprobar errores y mostrarlos por pantalla-->
