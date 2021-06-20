@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { UserService } from 'src/app/servicios/user.service';
@@ -17,17 +17,20 @@ export class PerfilComponent implements OnInit {
   formPerfil = this.fb.group({
     nombre: [''],
     apellidos: [''],
-    password: ['', [Validators.required, Validators.minLength(4)]],
-    repassword:['',[Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
+    password: ['', [, Validators.minLength(4)]],
+    email: ['', [ Validators.email]],
     dni: ['', [Validators.required,dniValido2()]],
     
   })
+  
+
   formImage = this.fb.group({
     imagen:["",Validators.required]
   })
   foto: File
-  mensajeerr = ""
+  mensaje = ""
+  visible = false
+  contador
 
 
   constructor(private servicioUsuario: UserService, private fb: FormBuilder, private irHacia: Router) { }
@@ -45,7 +48,11 @@ export class PerfilComponent implements OnInit {
         this.formPerfil.patchValue(respuesta)
 
       },
-      error => {console.log(error)}
+      error => {
+        
+        console.log(error)
+        this.mensaje= error.error.error
+      }
     )
   }
   editarPerfil():void{
@@ -55,7 +62,11 @@ export class PerfilComponent implements OnInit {
         this.cargarPerfil()
         this.mostrarEditar = false
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+      
+        this.mensaje= error.error.error
+      }
     )
   }
   eliminarUsuario():void{
@@ -63,9 +74,11 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.servicioUsuario.logout()
-        this.irHacia.navigate(['/login'])
+        
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje= error.error.error}
     )
   }
   cambiaImagen(evento): void{
@@ -82,7 +95,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
 
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje= error.error.error
+      }
     )
   }
   
@@ -101,7 +117,10 @@ export class PerfilComponent implements OnInit {
         this.cargarPerfil()
 
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje= error.error.error
+      }
     )
 
   }
