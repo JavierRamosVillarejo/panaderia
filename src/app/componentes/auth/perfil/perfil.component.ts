@@ -22,6 +22,12 @@ export class PerfilComponent implements OnInit {
     dni: ['', [Validators.required,dniValido2()]],
     
   })
+
+  get dniN(){return this.formPerfil.get("dni")}
+  get emailN(){return this.formPerfil.get("email")}
+  get passN(){return this.formPerfil.get("password")}
+  
+
   
 
   formImage = this.fb.group({
@@ -74,6 +80,7 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.servicioUsuario.logout()
+        this.irHacia.navigate(["login"])
         
       },
       error => {

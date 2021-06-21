@@ -54,7 +54,6 @@ export class RegisterComponent implements OnInit {
   }
   
   get dniN(){return this.formRegister.get("dni")}
-  get tlfN(){return this.formRegister.get("tlf")}
   get emailN(){return this.formRegister.get("email")}
   get passN(){return this.formRegister.get("password")}
   get repassN(){return this.formRegister.get("repassword")}

@@ -19,12 +19,23 @@
     
     </form>
     <!--Aqui empezamos a comprobar errores y mostrarlos por pantalla-->
-    <div class="d-flex justify-content-center">
-        <div class="alert alert-dismissible alert-danger" style="max-width: 20rem;" *ngIf="formRegister.invalid">
+    <div class="d-flex justify-content-center" *ngIf="formRegister.invalid ">
+        <div class="alert alert-dismissible alert-danger" style="max-width: 20rem;" >
             <div class="card-body">
-              <p class="card-text">DEBES COMPLETAR TODOS LOS CAMPOS</p>
+              <p class="card-text" *ngIf="dniN.invalid && formRegister.valueChanges" >-El dni no es Correcto</p>
+              <p class="card-text" *ngIf="emailN.invalid && formRegister.valueChanges" >-El email no es Correcto</p>
+              <p class="card-text" *ngIf="passN.invalid && formRegister.valueChanges" >-La contraseña debe tener almenos 4 caracteres</p>
+              <p class="card-text" *ngIf="repassN.value!=passN.value && formRegister.valueChanges" >- Las contraseñas no coinciden</p>
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-center" *ngIf="mensajeerr">
+        <div class="alert alert-dismissible alert-danger" style="max-width: 20rem;" >
+            <div class="card-body">
+              <p>{{mensajeerr}}</p>
+            </div>
+        </div>
+    </div>
+    
     
 </div>
