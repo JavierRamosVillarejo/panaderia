@@ -11,6 +11,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { HomeComponent } from './componentes/home/home.component';
+import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { CrearProductosComponent } from './crear-productos/crear-productos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HomeComponent } from './componentes/home/home.component';
     PerfilComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ListaProductosComponent,
+    CrearProductosComponent
   ],
   imports: [
     BrowserModule,
