@@ -7,11 +7,28 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
 
         <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink ="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink ="/noticias" routerLinkActive="active">Noticias</a>
+            </li><li class="nav-item">
+                <a class="nav-link" routerLink ="/listaProductos" routerLinkActive="active">lista Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink ="/crear" routerLinkActive="active">Crear Producto y Noticias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink ="/carrito" routerLinkActive="active">Carrito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink ="/pedidos" routerLinkActive="active">Pedidos</a>
+            </li>
+           
+
             
             <ng-template [ngIf]="!fnLoged()" [ngIfElse]="salir">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink ="/crearProducto" routerLinkActive="active">Crear Producto</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" routerLink ="/registro" routerLinkActive="active">Registro</a>
                 </li>
@@ -26,7 +43,7 @@
                 <li class="nav-item">
                     <a class="nav-link" (click)="doLogOut()" routerLink ="." routerLinkActive="active">Logout</a>
                     
-                </li>
+                </li>   
             </ng-template>
         </ul>
     </div>

@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    
+    <div class="col-md-4 ">
+        <div class="card-body">
+            <h5 class="card-title">Crear Producto</h5>
+            <form >
+                <div class="mb-3 mt-3">
+                  <label for="nombre" class="form-label">Nombre:</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Introduce nombre" name="nombre" [(ngModel)]="productoNuevo.nombre">
+                </div>
+                <div class="mb-3">
+                  <label for="descripcion" class="form-label">Descripcion:</label>
+                  <input type="text" class="form-control" id="descripcion" placeholder="Introduce descripción" name="descripcion" [(ngModel)]="productoNuevo.descripcion">
+                </div>
+                <div class="mb-3">
+                  <label for="pvp" class="form-label">Precio:</label>
+                  <input type="text" class="form-control" id="pvp" placeholder="Introduce precio" name="pvp" [(ngModel)]="productoNuevo.pvp">
+                </div>
+                <div class="mb-3">
+                  <label for="tipo" class="form-label">Tipo:</label>
+                  <input type="text" class="form-control" id="tipo" placeholder="Introduce tipo de producto" name="tipo" [(ngModel)]="productoNuevo.tipo">
+                </div>
+                <div class="row">
+                  <button class="btn btn-primary col-md-4" (click)="crearProducto()" >Insertar Producto</button> 
+                  <button class="btn btn-primary col-md-4 ml-auto" >Insertar imagen </button>
+                </div>
+              </form>
+          </div>
+    </div>      
+    <div class="card col-md-4">
+        <h5 class="card-title">Muestra del producto</h5>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="assets\images\productosdefault.jpg" alt="Trendy Pants and Shoes" class="img-fluid rounded-start"/>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{productoNuevo.nombre}}
+                  </h5>
+                  <p class="card-text">
+                    {{productoNuevo.descripcion}}
+                  </p>
+                  <p class="card-text" *ngIf="productoNuevo.pvp>0">
+                    {{productoNuevo.pvp}}€
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">{{productoNuevo.tipo}}</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>  
+</div>
+<div class="row justify-content-center">
+    
+    <div class=" col-md-4 ">
+        <div class="card-body">
+            <h5 class="card-title">Crear Noticia</h5>
+            <form action="">
+                <div class="mb-3 mt-3">
+                  <label for="titulo" class="form-label">Titulo:</label>
+                  <input type="text" class="form-control" id="titulo" placeholder="Introduce titulo" name="titulo" [(ngModel)]="noticiaNueva.titulo">
+                </div>
+                <div class="mb-3 mt-3">
+                  <label for="texto" class="form-label">Texto:</label>
+                  <input type="text" class="form-control" id="texto" placeholder="Introduce texto" name="texto" [(ngModel)]="noticiaNueva.texto">
+                </div>
+                <div class="mb-3 mt-3">
+                  <label for="fecha" class="form-label">Fecha:</label>
+                  <input type="date" class="form-control" id="fecha" placeholder="Introduce fecha" name="fecha" [(ngModel)]="noticiaNueva.fecha">
+                </div>
+                <div class="row">
+                  <button class="btn btn-primary col-md-4" (click)="crearNoticia()" >Insertar Noticia</button> 
+                  <button class="btn btn-primary col-md-4 ml-auto" >Insertar imagen </button>
+                </div>
+              </form>
+          </div>
+    </div>
+         
+    <div class="card col-md-4 d-flex justify-content-center">
+      <h5 class="card-title">Muestra de la notica</h5>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="assets\images\productosdefault.jpg" alt="Trendy Pants and Shoes"class="img-fluid rounded-start"/>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{noticiaNueva.titulo}}</h5>
+                  <p class="card-text">
+                    {{noticiaNueva.texto}}
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">{{noticiaNueva.fecha}}</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>      
+          
+        
+    
+</div>
+
+

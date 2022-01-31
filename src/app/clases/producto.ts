@@ -2,6 +2,8 @@ export class Producto {
     id?: number
     nombre?: string
     descripcion?: string
-    precio?: number
+    pvp?: number
     imgSrc?: string
+    tipo?: string
+    idUser?: number
 }

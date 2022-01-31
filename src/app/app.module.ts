@@ -11,8 +11,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { HomeComponent } from './componentes/home/home.component';
-import { ListaProductosComponent } from './lista-productos/lista-productos.component';
-import { CrearProductosComponent } from './crear-productos/crear-productos.component';
+import { ListaProductosComponent } from './componentes/lista-productos/lista-productos.component';
+import { NoticiasComponent } from './componentes/noticias/noticias.component';
+import { GestionPedidoComponent } from './componentes/gestion-pedido/gestion-pedido.component';
+import { CarritoComponent } from './componentes/carrito/carrito.component';
+import { CrearAdminComponent } from './componentes/crear-admin/crear-admin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,11 @@ import { CrearProductosComponent } from './crear-productos/crear-productos.compo
     RegisterComponent,
     HomeComponent,
     ListaProductosComponent,
-    CrearProductosComponent
+    
+    NoticiasComponent,
+    GestionPedidoComponent,
+    CarritoComponent,
+    CrearAdminComponent
   ],
   imports: [
     BrowserModule,
