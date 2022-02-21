@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
     repassword:['',[]],
     email: ['', [Validators.required, Validators.email]],
     dni: ['', [dniValido2()]],
-    
   })
 
   mensajeerr: string=""
@@ -40,7 +39,6 @@ export class RegisterComponent implements OnInit {
           this.mensaje= "FORMULARIO CORRECTO.  Redirigiendo a Perfil"
           
             this.irHacia.navigate(['/perfil'])
-          
         },
         error => {
           console.log(error)

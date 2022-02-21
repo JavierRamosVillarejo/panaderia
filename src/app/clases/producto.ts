@@ -5,5 +5,6 @@ export class Producto {
     pvp?: number
     imgSrc?: string
     tipo?: string
+    pts?: number
     idUser?: number
 }

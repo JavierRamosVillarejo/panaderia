@@ -1,1 +1,85 @@
-<p>lista-productos works!</p>
+
+<div class="container text-center">    
+  <h3>NUESTROS PRODUCTOS</h3><br>
+  <div class="row" *ngIf="mostrarProd==false">
+    <div class="col-sm-4" *ngFor="let prod of productos">
+      <div class="card">
+        <img class="card-img" src="assets\images\productosdefault.jpg" >
+        <div class=" col-5 text-white bg-dark bg-opacity-50 card-img-overlay  d-flex justify-content-center align-items">
+          <div>
+          <h5 class="card-title "> {{prod.nombre}}</h5>
+          <br>
+          <h5 class="card-title "> {{prod.pvp}}€</h5>
+          <br>
+          <button class="btn text-white rounded-pill bg-warning">Pedir</button>
+          <br><br>
+          <button class="btn text-white rounded-pill bg-info" (click)="productoSel=prod; obtenerComentarioProd(); mostrarProd=true ">Información</button>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center" *ngIf="mostrarProd==true">
+  <div class="col-sm-8 " >
+    <div class="card border-primary mb-3 p-2">
+      <div class="row">
+        <img class=" card-img col-sm-4 rounded" src="assets\images\productosdefault.jpg" >
+        <div class="col-sm align-right">
+            <h5 class="card-header "> {{productoSel.nombre}}</h5>
+            <br>
+            <p class="card-text ">{{productoSel.descripcion}}</p>
+            <h5 class="card-title "> {{productoSel.pvp}}€</h5>
+            <br>
+            <button class="btn text-white rounded-pill bg-warning" (click)="mostrarProd=false">Volver</button>
+            <button class="btn text-white rounded-pill bg-success" (click)="mostrarFormCom=true">Comentar</button>
+            <br><br>
+        </div>
+        
+        <div class="container">
+          <div class="card">
+            <h4 class="card-header">Comentarios</h4>
+            <div *ngIf="mostrarFormCom==true">
+              <form  [formGroup]="formComentario" (submit)="crearComentario()">
+                <div class="mb-3 mt-3">
+                  <label for="nombre" class="form-label">Titulo:</label>
+                  <input type="text" class="form-control" id="titulo" placeholder="Introduce titulo" name="titulo" formControlName="titulo">
+                </div>
+                <div class="mb-3">
+                  <label for="texto" class="form-label">Texto:</label>
+                  <input type="text" class="form-control" id="texto" placeholder="Introduce descripción" name="texto" formControlName="texto">
+                </div>
+                <div class="mb-3">
+                  <label for="pts" class="form-label"> Puntuacion:</label>
+                  <select class="custom-select mr-sm-2" id="pts" name="pts" name="pts" formControlName="pts" >
+                    <option >1</option>
+                    <option >2</option>
+                    <option >3</option>
+                    <option >4</option> 
+                    <option >5</option>
+                  </select>
+                </div>
+               
+                <div class="mb-3">
+                  <button type="submit" class="btn btn-primary " [disabled]="formComentario.invalid">Insertar</button>
+                  <button class="btn text-white rounded-pill bg-danger" (click)="mostrarFormCom=false">Cancelar</button>
+                </div>
+            </form>
+            </div>
+            <div class="card-body" *ngFor="let com of comentariosProd">
+              <div>
+                <h6 class="card-subtitle mb-2 text-muted">{{com.titulo}}</h6>
+                <p class="card-text">{{com.texto}}</p>
+                <p class="card-text">{{com.pts}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>  
+  </div>
+  
+</div>
