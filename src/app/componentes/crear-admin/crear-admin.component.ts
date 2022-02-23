@@ -51,6 +51,7 @@ export class CrearAdminComponent implements OnInit {
   }
 
   crearProducto():void{
+    console.log(this.formProducto.value)
     this.servicioProducto.insertarProducto(this.formProducto.value).subscribe(
       respuesta =>{
         console.log(respuesta)
@@ -59,7 +60,6 @@ export class CrearAdminComponent implements OnInit {
         setTimeout(() => {this.creada=false 
         }, 1000);
         this.formProducto.reset()
-
       },
       error=>{console.log(error)}
     )
@@ -116,7 +116,7 @@ export class CrearAdminComponent implements OnInit {
         this.creada=true
         setTimeout(() => {this.creada=false 
         }, 1000);
-        this.formProducto.reset()
+        this.formNoticia.reset()
 
       },
       error=>{console.log(error)}

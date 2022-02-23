@@ -27,7 +27,7 @@ export class ListaProductosComponent implements OnInit {
     titulo:[''],
     texto:[''], 
     pts: [''],
-    idProd:[this.productoSel.id],
+    idProd:[''],
     idUser:['']
   })
   
@@ -81,7 +81,8 @@ export class ListaProductosComponent implements OnInit {
   }
 
   crearComentario():void{
-    this.servicioProducto.insertarProducto(this.formComentario.value).subscribe(
+    this.formComentario.controls.idProd.setValue(this.productoSel.id);
+    this.servicioComentario.insertarComentario(this.formComentario.value).subscribe(
       respuesta =>{
         console.log(respuesta)
         this.obtenerComentarios()
