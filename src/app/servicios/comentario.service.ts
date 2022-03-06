@@ -15,7 +15,7 @@ export class ComentarioService {
     return this.http.get(url + "list/")
   }
   obtenerComentariosEnviados():Observable<any>{
-    return this.http.get(url + "prod")
+    return this.http.get(url + "prod/")
   }
   insertarComentario(Comentario: Comentario): Observable<any>{
     return this.http.post(url,Comentario)
